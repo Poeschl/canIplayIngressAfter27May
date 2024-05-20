@@ -5,8 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Can I play Ingress after 27. may</title>
   <style>
+
+    @keyframes gradient {
+      0% {
+        background-position: 0 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0 50%;
+      }
+    }
+
     body {
-      background-color: hsl(221, 14%, 4%);
+      background: linear-gradient(-45deg, #196e8e, #1a856c, #196e8e, #1a856c);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
       color: white;
       display: flex;
       flex-direction: column;
