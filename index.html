@@ -94,10 +94,22 @@
     console.log(userAgent)
 
     if (/Android/i.test(userAgent)) {
-      deviceStatus = "Maybe, it's not sure.";
-      document.getElementById('help').style.display = "block"
+      const androidVersion = userAgent.match(/Android (\d+)\./);
+      if (androidVersion && parseInt(androidVersion[1], 10) < 8) {
+        deviceStatus = 'No, your system is too old';
+      } else {
+        deviceStatus = "Maybe, it's not sure.";
+        document.getElementById('help').style.display = "block";
+      }
+
     } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
-      deviceStatus = 'Yes';
+      const iOSVersion = userAgent.match(/OS (\d+)_/);
+      if (iOSVersion && parseInt(iOSVersion[1], 10) < 14) {
+        deviceStatus = 'No, your system is too old';
+      } else {
+        deviceStatus = 'Yes';
+      }
+
     } else {
       deviceStatus = 'Mobile devices only :/';
     }
