@@ -62,6 +62,11 @@
       fill: white;
     }
 
+    #help {
+      display: none;
+      font-size: 2em;
+    }
+
   </style>
 
 </head>
@@ -77,6 +82,8 @@
   <div class="text">
     <h1>Can I play Ingress on this device after the 27th May?</h1>
     <div id="device-status" class="device-status">-</div>
+    <div id="help"><a href="https://niantic.helpshift.com/hc/en/3-ingress/faq/4495-ingress-is-not-supported-on-this-device-configuration-error-android-only/">Official
+      help</a></div>
   </div>
 </div>
 
@@ -88,6 +95,7 @@
 
     if (/Android/i.test(userAgent)) {
       deviceStatus = "Maybe, it's not sure.";
+      document.getElementById('help').style.display = "block"
     } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
       deviceStatus = 'Yes';
     } else {
