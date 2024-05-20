@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can I play Ingress after 27. may</title>
+  <style>
+    body {
+      background-color: hsl(221, 14%, 4%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin: 0.5em 0;
+    }
+
+    .device-status {
+      font-size: 4em;
+      font-weight: bold;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      text-align: center;
+    }
+
+    .icon {
+      fill: white;
+    }
+
+  </style>
+
+</head>
+<body onload="detectDevice()">
+<div class="row">
+  <div class="icon">
+    <svg xmlns="http://www.w3.org/2000/svg" height="128" width="128" viewBox="0 0 512 512">
+      <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+      <path
+        d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/>
+    </svg>
+  </div>
+  <div class="text">
+    <h1>Can I play Ingress on this device after the 27th May?</h1>
+    <div id="device-status" class="device-status">-</div>
+  </div>
+</div>
+
+<script>
+  function detectDevice() {
+    const userAgent = navigator.userAgent;
+    let deviceStatus = 'Maybe';
+
+    if (/Android/i.test(userAgent)) {
+      deviceStatus = 'Maybe, its not sure.';
+    } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+      deviceStatus = 'Yes';
+    } else {
+      deviceStatus = 'Mobile devices only :/';
+    }
+
+    document.getElementById('device-status').textContent = deviceStatus;
+  }
+</script>
+</body>
+</html>
