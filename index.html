@@ -84,6 +84,7 @@
   function detectDevice() {
     const userAgent = navigator.userAgent;
     let deviceStatus = 'Maybe';
+    console.log(userAgent)
 
     if (/Android/i.test(userAgent)) {
       deviceStatus = 'Maybe, its not sure.';
